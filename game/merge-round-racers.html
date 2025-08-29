@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Play Merge Round Racers – Fun Merge Racing Game</title>
+  <meta name="description"
+    content="Play Merge Round Racers free! Combine your mini cars, race in circular tracks, and upgrade vehicles in this addictive merge & racing game.">
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <!-- Css -->
+  <link rel="stylesheet" href="/css/p.css" />
+  <link rel="canonical" href="https://eggy-car-official.com/game/.html" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="Publisher" content="MANO’s Developer’s" />
+  <!-- Dark Mode JS -->
+  <script src="/js/darkMode.bundle.js"></script>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/img/favicon.png" />
+ 
+
+</head>
+
+<body>
+  <!-- Header -->
+    <header class="eggy-nav-header">
+        <div class="eggy-nav-container">
+            <!-- Logo -->
+            <a href="/" class="shrink-0">
+                <img src="/img/logo.png" style="max-height: 3.25rem;" alt="Eggy Car" />
+                
+            </a>
+
+            <!-- Search Bar -->
+            <div class="eggy-nav-search-container">
+                <!-- Inside the search form div in header -->
+                <form class="eggy-nav-search-form" action="/search" method="GET">
+                    <input type="search" class="eggy-nav-search-input" placeholder="Search games..."
+                        id="eggy-nav-search-input" autocomplete="off">
+                    <svg class="eggy-nav-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </form>
+                <div class="eggy-nav-search-results" id="eggy-nav-search-results"></div>
+            </div>
+
+            <!-- Categories -->
+            <nav class="eggy-nav-categories" id="eggy-nav-categories">
+                <a href="/" class="eggy-nav-link active">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                        </path>
+                    </svg>
+                    Home
+                </a>
+                <a href="/car.html" class="eggy-nav-link">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zM3 15a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm7-13a2 2 0 012-2h2a2 2 0 012 2v11a3 3 0 11-6 0V2zm2 13a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Car
+                </a>
+                <div class="eggy-nav-item">
+                    <button class="eggy-nav-more-btn" onclick="eggyNavToggleDropdown()">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                            </path>
+                        </svg>
+                        More
+                        <svg class="eggy-nav-dropdown-arrow" id="eggy-nav-dropdown-arrow" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="eggy-nav-dropdown" id="eggy-nav-dropdown">
+                        <a href="/skill.html" class="eggy-nav-dropdown-item">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Skill
+                        </a>
+                        <a href="/action.html" class="eggy-nav-dropdown-item">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Action
+                        </a>
+                        <a href="/shooting.html" class="eggy-nav-dropdown-item">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            Shooting
+                        </a>
+                        <a href="/sport.html" class="eggy-nav-dropdown-item">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Sport
+                        </a>
+                        <a href="/idle.html" class="eggy-nav-dropdown-item">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM6 9.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm2.5 2.5a1 1 0 000 2h3a1 1 0 100-2h-3z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Idle
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="eggy-nav-mobile-toggle" onclick="eggyNavToggleMobileMenu()">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </header><br><br>
+
+  <div class="bg-animation" id="bgAnimation"></div>
+  <div class="main-container">
+    <!-- Left Colorful Sidebar -->
+    <div class="colorful-sidebar">
+      <!-- Row action -->
+      <div class="games-row">
+        <a href="/game/iron-snout.html" class="game-icon">
+          <img src="/sarkar/iron-snout.jpg" alt="Iron Snout">
+        </a>
+        <a href="/game/among-us.html" class="game-icon">
+          <img src="/sarkar/among-us.jpg" alt="AMONGUS">
+        </a>
+        <a href="/game/iron-snout-2.html" class="game-icon">
+          <img src="/sarkar/iron-snout-2.jpg" alt="Iron Snout 2">
+        </a>
+        <a href="/game/magikmon.html" class="game-icon">
+          <img src="/sarkar/magikmon.jpg" alt="Magikmon">
+        </a>
+        <a href="/game/getaway-shootout.html" class="game-icon">
+          <img src="/sarkar/getaway-shootout.jpg" alt="Getaway Shootout">
+        </a>
+        <a href="/game/house-of-hazards.html" class="game-icon">
+          <img src="/sarkar/house-of-hazards.jpg" alt="House Of Hazards">
+        </a>
+        <a href="/game/rooftop-snipers.html" class="game-icon">
+          <img src="/sarkar/rooftop-snipers.jpg" alt="Rooftop Snipers">
+        </a>
+        <a href="/game/temple-of-boom.html" class="game-icon">
+          <img src="/sarkar/temple-of-boom.jpg" alt="temple-of-boom">
+        </a>
+      </div>
+
+      <!-- Row shooting -->
+      <div class="games-row reverse">
+        <a href="/game/1v1-lol.html" class="game-icon">
+          <img src="/sarkar/1v1-lol.jpg" alt="1v1.LOL">
+        </a>
+        <a href="/game/mad-gunz.html" class="game-icon">
+          <img src="/sarkar/mad-gunz.jpg" alt="Mad Gunz">
+        </a>
+        <a href="/game/mr-bullet.html" class="game-icon">
+          <img src="/sarkar/mr-bullet.jpg" alt="Mr Bullet">
+        </a>
+        <a href="/game/raft-wars.html" class="game-icon">
+          <img src="/sarkar/raft-wars.jpg" alt="Raft Wars 1">
+        </a>
+        <a href="/game/the-spear-stickman.html" class="game-icon">
+          <img src="/sarkar/the-spear-stickman.jpg" alt="The Spear Stickman">
+        </a>
+        <a href="/game/raft-wars-2.html" class="game-icon">
+          <img src="/sarkar/raft-wars-2.jpg" alt="Raft Wars 2">
+        </a>
+        <a href="/game/getaway-shootout.html" class="game-icon">
+          <img src="/sarkar/getaway-shootout.jpg" alt="Getaway Shootout">
+        </a>
+        <a href="/game/iron-snout-2.html" class="game-icon">
+          <img src="/sarkar/iron-snout-2.jpg" alt="Iron Snout 2">
+        </a>
+      </div>
+
+      <!-- Row soorts -->
+      <div class="games-row slow">
+        <a href="/game/basketball-legends.html" class="game-icon">
+          <img src="/sarkar/basketball-legends.jpg" alt="Basketball Legends">
+        </a>
+        <a href="/game/brooftop-snipers.html" class="game-icon">
+          <img src="/sarkar/basket-ball.jpg" alt="Basketball Stars">
+        </a>
+        <a href="/game/football-legends.html" class="game-icon">
+          <img src="/sarkar/football-legends.jpg" alt="Football Legends">
+        </a>
+        <a href="/game/parkour-race.html" class="game-icon">
+          <img src="/sarkar/parkour-race.jpg" alt="Parkour Race">
+        </a>
+        <a href="/game/penalty-kick-online.html" class="game-icon">
+          <img src="/sarkar/penalty-kick-online.jpg" alt="Penalty Kick Online">
+        </a>
+        <a href="/game/tap-tap-shots.html" class="game-icon">
+          <img src="/sarkar/tap-tap-shots.jpg" alt="Tap Tap Shots">
+        </a>
+        <a href="/game/retro-bowl.html" class="game-icon">
+          <img src="/sarkar/retro-bowl.jpg" alt="Retro Game 2">
+        </a>
+        <a href="/game/soccar.html" class="game-icon">
+          <img src="/sarkar/soccar.jpg" alt="Soccar">
+        </a>
+      </div>
+
+      <!-- Row idle -->
+      <div class="games-row reverse">
+        <a href="/game/cookie-clicker.html" class="game-icon">
+          <img src="/sarkar/cookie-clicker.jpg" alt="Cookie Clicker">
+        </a>
+        <a href="/game/idle-startup-tycoon.html" class="game-icon">
+          <img src="/sarkar/idle-startup-tycoon.jpg" alt="Idle Startup Tycoon">
+        </a>
+        <a href="/game/idle-mining-empire.html" class="game-icon">
+          <img src="/sarkar/idle-mining-empire.jpg" alt="Idle Mining Empire">
+        </a>
+        <a href="/game/merge-cakes.html" class="game-icon">
+          <img src="/sarkar/merge-cakes.jpg" alt="Merge Cakes">
+        </a>
+        <a href="/game/stickmerge.html" class="game-icon">
+          <img src="/sarkar/temple-of-boom.jpg" alt="Merge Man">
+        </a>
+        <a href="/game/merge-cyber-racers.html" class="game-icon">
+          <img src="/sarkar/merge-cyber-racers.jpg" alt="Merge Cyber Racers">
+        </a>
+        <a href="/game/merge-round-racers.html" class="game-icon">
+          <img src="/sarkar/merge-round-racers.jpg" alt="Merge Round Racers">
+        </a>
+        <a href="/game/idle-dice.html" class="game-icon">
+          <img src="/sarkar/idle-dice.jpg" alt="Idle Dice">
+        </a>
+      </div>
+      <!--row skill-->
+      <div class="games-row slow">
+        <a href="/game/tiny-fishing.html" class="game-icon">
+          <img src="/sarkar/tiny-fishing.jpg" alt="Tiny Fishing">
+        </a>
+        <a href="/game/there-is-no-game.html" class="game-icon">
+          <img src="/sarkar/there-is-no-game.jpg" alt="There Is No Game">
+        </a>
+        <a href="/game/traffic-mania.html" class="game-icon">
+          <img src="/sarkar/traffic-mania.jpg" alt="Traffic Mania">
+        </a>
+        <a href="/game/boxrob.html" class="game-icon">
+          <img src="/sarkar/boxrob.jpg" alt="boxrob">
+        </a>
+        <a href="/game/gswitch.html" class="game-icon">
+          <img src="/sarkar/gswitch.jpg" alt="G-Switch 3">
+        </a>
+        <a href="/game/gold-digger-frvr.html" class="game-icon">
+          <img src="/sarkar/gold-digger-frvr.jpg" alt="Gold Digger FRVR">
+        </a>
+        <a href="/game/slope-ball.html" class="game-icon">
+          <img src="/sarkar/slope-ball.jpg" alt="Slope Ball">
+        </a>
+        <a href="/game/murder.html" class="game-icon">
+          <img src="/sarkar/murder.jpg" alt="Murder">
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Your Exact Game Center Section -->
+    <div class="game-center">
+      <section class="game-section">
+        <h1 class="game-title">🎮 Play Merge Round Racers</h1>
+
+        <div class="fullscreen-container">
+          <div class="game-container" id="gameContainer">
+            <button class="fullscreen-btn" id="fullscreenBtn" onclick="toggleFullscreen()">
+              🔍 Fullscreen
+            </button>
+            <iframe id="gameFrame" class="game-frame"
+              src="https://ubg77.github.io/edit/merge-round-racers/" frameborder="0" allowfullscreen
+              title="Eggy Car Unblocked Game">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <button class="control-btn" onclick="reloadGame()">🔄 Restart</button>
+          <button class="control-btn" onclick="showControls()">🎮 Controls</button>
+          <button class="control-btn" onclick="toggleFullscreen()">📱 Fullscreen</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Colorful Sidebar -->
+    <div class="colorful-sidebar">
+      <!-- Car Games Row 1 -->
+      <div class="games-row">
+        <a href="/game/drift-boss.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/drift-boss.jpg" alt="Drift Boss">
+        </a>
+        <a href="/game/drift-hunters.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/drift-hunters.jpg" alt="Drift Hunters">
+        </a>
+        <a href="/game/highway-racer-3d.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/highway-racer-3d.jpg" alt="Highway Racer 3D">
+        </a>
+        <a href="/game/highway-bike-simulator.html" class="game-icon">
+          <img src="/sarkar/highway-bike-simulator.jpg" alt="Highway bike Extreme">
+        </a>
+        <a href="/game/madalin-stunt-cars-3.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/madalin-stunt-cars-3.jpg" alt="Madalin Stunt Cars 3">
+        </a>
+        <a href="/game/jelly-truck.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/jelly-truck.jpg" alt="Jelly Truck">
+        </a>
+        <a href="/game/parking-fury-3d-beach-city.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/parking-fury-3d-beach-city.jpg"
+            alt="Parking Fury 3D Beach City">
+        </a>
+        <a href="/game/sling-drift.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/sling-drift.jpg" alt="Sling Drift">
+        </a>
+      </div>
+
+      <!-- Car Games Row 2 -->
+      <div class="games-row reverse">
+        <a href="/game/3d-car-simulator.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/3d-car-simulator.jpg" alt="3D Car Simulator">
+        </a>
+        <a href="/game/adventure-drivers.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/adventure-drivers.jpg" alt="Adventure Drivers">
+        </a>
+        <a href="/game/burnin-rubber-5-xs.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/burnin-rubber-5-xs.jpg" alt="Burnin Rubber 5 XS">
+        </a>
+        <a href="/game/blumgi-rocket.html" class="game-icon">
+          <img src="/sarkar/blumgi-rocket.jpg" alt="Blumgi Rocket">
+        </a>
+        <a href="/game/burnout-drift-hilltop.html" class="game-icon">
+          <img src="/sarkar/burnout-drift-hillto.jpg" alt="Burnout Drift Hilltop">
+        </a>
+        <a href="/game/indian-uphill-bus-simulator-3d.html" class="game-icon">
+          <img src="/sarkar/indian-truck-simulator-3d.jpg" alt="Indian Parking 3D">
+        </a>
+        <a href="/game/car-drift-racers-2.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/car-drift-racers-2.jpg" alt="Car Drift Racers 2">
+        </a>
+        <a href="/game/car-rush.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/car-rush.jpg" alt="Car Rush">
+        </a>
+      </div>
+
+      <!-- Car Games Row 3 -->
+      <div class="games-row slow">
+        <a href="/game/car-simulator-arena.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/car-simulator-arena.jpg" alt="Car Simulator Arena">
+        </a>
+        <a href="/game/cartoon-mini-racing.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/cartoon-mini-racing.jpg" alt="Cartoon Mini Racing">
+        </a>
+        <a href="/game/city-car-driving-stunt-master.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/city-car-driving-stunt-master.jpg"
+            alt="City Car Driving Stunt Master">
+        </a>
+        <a href="/game/city-rider.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/city-rider.jpg" alt="City Rider">
+        </a>
+        <a href="/game/demolition-derby-crash-racing.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/demolition-derby-crash-racing.jpg"
+            alt="Demolition Derby Crash Racing">
+        </a>
+        <a href="/game/endless-truck.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/endless-truck.jpg" alt="Endless Truck">
+        </a>
+        <a href="/game/extreme-car-parking.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/extreme-car-parking.jpg" alt="Extreme Car Parking">
+        </a>
+        <a href="/game/furious-racing-3d.html" class="game-icon">
+          <img src="/sarkar/furious-racing-3d.jpg" alt="Furious Racing 3d">
+        </a>
+      </div>
+
+      <!-- Car Games Row 4 -->
+      <div class="games-row reverse">
+        <a href="/game/offroad-forest-racing.html" class="game-icon">
+          <img src="/sarkar/offroad-forest-racing.jpg" alt="Offroad forest racing">
+        </a>
+        <a href="/game/flying-car-simulator.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/flying-car-simulator.jpg" alt="Flying Car Simulator">
+        </a>
+        <a href="/game/fortride-open-world.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/fortride-open-world.jpg" alt="Fortride Open World">
+        </a>
+        <a href="/game/go-kart-go-ultra.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/go-kart-go-ultra.jpg" alt="Go Kart Go Ultra">
+        </a>
+        <a href="/game/imposter-between-us.html" class="game-icon">
+          <img src="/sarkar/imposter-between-us.jpg" alt="Imposter Between Us">
+        </a>
+        <a href="/game/indian-truck-simulator-3d.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/indian-truck-simulator-3d.jpg" alt="Indian Truck Simulator 3D">
+        </a>
+        <a href="/game/mad-truck-challenge-special.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/mad-truck-challenge-special.jpg"
+            alt="Mad Truck Challenge Special">
+        </a>
+        <a href="/game/madalin-stunt-cars-2.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
+        </a>
+      </div>
+
+      <!-- Car Games Row 5 -->
+      <div class="games-row">
+        <a href="/game/merge-cyber-racers.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/merge-cyber-racers.jpg" alt="Merge Cyber Racers">
+        </a>
+        <a href="/game/merge-round-racers.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/merge-round-racers.jpg" alt="Merge Round Racers">
+        </a>
+        <a href="/game/monster-tracks.html" class="game-icon">
+          <img src="/sarkar/monster-tracks.jpg" alt="Monster Track">
+        </a>
+        <a href="/game/parking-fury-2.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/parking-fury-2.jpg" alt="Parking Fury 2">
+        </a>
+        <a href="/game/parking-fury-3.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/parking-fury-3.jpg" alt="Parking Fury 3">
+        </a>
+        <a href="/game/parking-fury-3d.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/parking-fury-3d.jpg" alt="Parking Fury 3D">
+        </a>
+        <a href="/game/parking-fury.html" class="game-icon">
+          <img src="https://eggy-car-official.com/sarkar/parking-fury.jpg" alt="Parking Fury">
+        </a>
+        <a href="/game/gp-moto-racing-3.html" class="game-icon">
+          <img src="/sarkar/gp-moto-racing-3.jpg" alt="Racing Monster Trucks">
+        </a>
+      </div>
+
+    </div>
+  </div>
+<div class="container-box">
+  <!-- Box 1: Game Introduction -->
+  <div class="box">
+    <h2>Merge Round Racers</h2>
+    <p>
+      Merge Round Racers changes puzzle games with its circular car combining system that makes players merge round racing vehicles to create faster cars for exciting races. This unique game shows round car graphics, creative designs, and racing mechanics. <strong><a href="/" style="color: chocolate;">EGGY CAR</a></strong> makes this merge game that teaches creativity and racing strategy skills, turning round car merging into innovative racing adventures for creative fans.
+    </p><br><br>
+      <div class="box" style="text-align:center;">
+        <h2>Global Rating</h2>
+        <h3> ⭐⭐⭐⭐ (3.7/5)</h3>
+      </div>
+  </div>
+
+  <!-- Box 2: How to Play Controls -->
+  <div class="box">
+    <h2>How to Play Merge Round Racers</h2>
+    <table class="controls-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Control</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spawn Car</td>
+          <td>Click / Tap</td>
+          <td>Add a basic racer to your garage grid</td>
+        </tr>
+        <tr>
+          <td>Merge Cars</td>
+          <td>Drag & Drop</td>
+          <td>Combine two identical cars to unlock the next model</td>
+        </tr>
+        <tr>
+          <td>Race</td>
+          <td>Auto</td>
+          <td>Send your cars around the circular track to collect coins</td>
+        </tr>
+        <tr>
+          <td>Upgrade Garage</td>
+          <td>Use Coins</td>
+          <td>Increase grid size or unlock faster cars</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Load More Button -->
+<div class="load-more-container">
+  <button class="load-more-btn" onclick="loadMoreContent()">Read More</button>
+</div>
+
+<!-- Additional Content (Hidden Initially) -->
+<div class="additional-content" id="additionalContent">
+  <div class="container-box">
+    <!-- Game Description Box -->
+    <div class="box">
+      <h2>What Makes Merge Round Racers Addictive?</h2>
+      <p>
+        <strong>Merge Round Racers</strong> is an innovative puzzle-racing hybrid where you create faster cars by merging similar vehicles. The addictive gameplay ensures that each level requires strategic thinking and quick reflexes. The combination of merging, racing, and optimizing your garage makes it a unique and enjoyable experience.
+      </p>
+    </div>
+
+    <!-- Features Box -->
+    <div class="box">
+      <h2>Key Features</h2>
+      <table class="features-table">
+        <thead>
+          <tr>
+            <th>✅ Feature</th>
+            <th>Benefit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Free to Play</td>
+            <td>Instant access with no downloads</td>
+          </tr>
+          <tr>
+            <td>Merge Mechanics</td>
+            <td>Build faster cars and optimize your grid</td>
+          </tr>
+          <tr>
+            <td>Circular Racing</td>
+            <td>Dynamic tracks keep gameplay fresh and fun</td>
+          </tr>
+          <tr>
+            <td>Idle Coin Collection</td>
+            <td>Earn even when you're offline</td>
+          </tr>
+          <tr>
+            <td>Colorful Visuals</td>
+            <td>Engaging and vibrant for all ages</td>
+          </tr>
+          <tr>
+            <td>Mobile & Desktop</td>
+            <td>Smooth play on any device</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-box">
+    <!-- Pro Tips Box -->
+    <div class="box">
+      <h2>Pro Tips</h2>
+      <div class="pro-tips">
+        🎯 Beginner: Merge low-tier cars quickly to open space.<br>
+        🏆 Advanced: Prioritize merging two highest-tier cars for speed boosts.<br>
+        💡 Secret: Watch which car completes laps fastest and focus merges there.<br>
+        ⚡ Speed: Upgrade grid size early for more cars on track.<br>
+        🛡️ Survival: Avoid clutter—clear grid to prevent blocking merges.
+      </div>
+    </div>
+
+    <!-- Technical Info Box -->
+    <div class="box">
+      <h2>Technical Information</h2>
+      <table class="features-table">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;">Platform</td>
+            <td>HTML5 – Browser (Web & Mobile)</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold;">Release Date</td>
+            <td>2024</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold;">Developer</td>
+            <td>MergeRace Studios</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold;">Genre</td>
+            <td>Merge / Racing / Clicker</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold;">Game Mode</td>
+            <td>Single Player</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-box">
+    <!-- Ratings & Reviews Section -->
+    <div class="box full-width-section">
+      <h2>⭐ Game Ratings & Reviews</h2>
+      <div class="reviews-container">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <span class="reviewer-name">MergeMaster</span>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <span class="review-date">Jan 2025</span>
+          </div>
+          <p class="review-text">"Great game! The merging mechanic is so addictive, and the racing keeps me coming back for more. Highly recommend it!"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <span class="reviewer-name">SpeedDemon</span>
+              <div class="rating">⭐⭐⭐⭐</div>
+            </div>
+            <span class="review-date">Dec 2024</span>
+          </div>
+          <p class="review-text">"Fun and challenging! I love how you can merge cars and race them, but I wish there were more tracks."</p>
+        </div>
+
+        <div class="overall-rating">
+          <div class="rating-summary">
+            <span class="rating-score">3.7/5</span>
+            <div class="rating-stars">⭐⭐⭐⭐</div>
+            <span class="rating-count">Based on 2,945 reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-box">
+    <!-- FAQs Section -->
+    <div class="box full-width-section">
+      <h2>❓ Frequently Asked Questions</h2>
+      <ul class="faq-list">
+        <li><strong>Q:</strong> Is Merge Round Racers free to play?<br><strong>A:</strong> Yes, it’s 100% free online.</li>
+        <li><strong>Q:</strong> Can I play on mobile devices?<br><strong>A:</strong> Absolutely—optimized for mobile and desktop.</li>
+        <li><strong>Q:</strong> How do cars collect coins?<br><strong>A:</strong> They race automatically in loops, generating coins over time.</li>
+        <li><strong>Q:</strong> Can I pause and resume later?<br><strong>A:</strong> Yes, progress is saved in your browser between sessions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <h2>🏁 Merge, Race, Win!</h2>
+    <p>
+      Play <strong>Merge Round Racers</strong> now and build your racing empire one merge at a time! 🚗💨
+    </p>
+  </div>
+
+  <!-- Close Content Button -->
+  <div class="close-content-container">
+    <button class="close-btn" onclick="closeContent()">Close Additional Content ✕</button>
+  </div>
+</div>
+
+     
+  <div id="games-list"></div>
+  <script>
+    window.games = [
+      { name: "Eggy car", image: "/sarkar/eggy-car.jpg", url: "/eggy-car/" },
+      { name: "Drift Dudes", image: "/sarkar/drift-dudes.jpg", url: "/game/drift-dudes.html" },
+      { name: "Drive Game 1", image: "/sarkar/drive-mad.jpg", url: "/game/drive-mad.html" },
+      { name: "Moto Road Rash 3D", image: "/sarkar/motoroadrash3d.jpg", url: "/game/motoroadrash3d.html" },
+      { name: "1v1.LOL", image: "/sarkar/1v1-lol.jpg", url: "/game/1v1-lol.html" },
+      { name: "Retro Game 2", image: "/sarkar/retro-bowl.jpg", url: "/game/retro-bowl.html" },
+      { name: "Getting over it", image: "/sarkar/getting-over-it.jpg", url: "/game/getting-over-it.html" },
+      { name: "Monkey Mart", image: "/sarkar/monkey-mart.jpg", url: "/game/monkey-mart.html" },
+      { name: "Moto X3M 3", image: "/sarkar/motox3m-3.jpg", url: "/game/motox3m-3.html" },
+      { name: "Moto X3M 2", image: "/sarkar/motox3m-2.jpg", url: "/game/motox3m-2.html" },
+      { name: "Basketball Legends", image: "/sarkar/basketball-legends.jpg", url: "/game/basketball-legends.html" },
+      { name: "Tunnel Rush", image: "/sarkar/tunnel-rush.jpg", url: "/game/tunnel-rush.html" },
+      { name: "Drift Hunters", image: "/sarkar/drift-hunters.jpg", url: "/game/drift-hunters.html" },
+      { name: "Monster Car Game", image: "/sarkar/monster-tracks.jpg", url: "/game/monster-tracks.html" },
+      { name: "Slope", image: "/sarkar/slope.jpg", url: "/game/slope.html" },
+      { name: "Sling Drift", image: "/sarkar/sling-drift.jpg", url: "/game/sling-drift.html" },
+      { name: "Football Legends", image: "/sarkar/football-legends.jpg", url: "/game/football-legends.html" },
+      { name: "NYC Game", image: "/sarkar/subway-surfers-nyc.jpg", url: "/game/subway-surfers-nyc.html" },
+      { name: "Cookie Clicker", image: "/sarkar/cookie-clicker.jpg", url: "/game/cookie-clicker.html" },
+      { name: "Merge Man", image: "/sarkar/stickmerge.jpg", url: "/game/stickmerge.html" },
+      { name: "Basketball Stars", image: "/sarkar/basketball-stars.jpg", url: "/game/basketball-stars.html" },
+      { name: "Mad Gunz", image: "/sarkar/mad-gunz.jpg", url: "/game/mad-gunz.html" },
+      { name: "Penalty kick online", image: "/sarkar/penalty-kick-online.jpg", url: "/game/penalty-kick-online.html" },
+      { name: "Elasticman", image: "/sarkar/elasticman.jpg", url: "/game/elasticman.html" },
+      { name: "Merge Iron Halloween", image: "/sarkar/stick-merge-halloween.jpg", url: "/game/stick-merge-halloween.html" },
+      { name: "Geometry Dash", image: "/sarkar/geometry-dash.jpg", url: "/game/geometry-dash.html" },
+      { name: "Among us", image: "/sarkar/among-us.jpg", url: "/game/among-us.html" },
+      { name: "Penalty Shooters 2", image: "/sarkar/penalty-shooters-2.jpg", url: "/game/penalty-shooters-2.html" },
+      { name: "Rocket Car", image: "/sarkar/rocket-soccer-derby.jpg", url: "/game/rocket-soccer-derby.html" },
+      { name: "Idle Mining Empire", image: "/sarkar/idle-mining-empire.jpg", url: "/game/idle-mining-empire.html" },
+      { name: "Drift Boss", image: "/sarkar/drift-boss.jpg", url: "/game/drift-boss.html" },
+      { name: "Endless truck", image: "/sarkar/endless-truck.jpg", url: "/game/endless-truck.html" },
+      { name: "Dunkbrush", image: "/sarkar/dunkbrush.jpg", url: "/game/dunkbrush.html" },
+      { name: "Mr Bullet", image: "/sarkar/mr-bullet.jpg", url: "/game/mr-bullet.html" },
+      { name: "Tiny Fishing", image: "/sarkar/tiny-fishing.jpg", url: "/game/tiny-fishing.html" },
+      { name: "Stack Bounce", image: "/sarkar/stackbounce.jpg", url: "/game/stackbounce.html" },
+      { name: "Highway racer 3D", image: "/sarkar/highway-racer-3d.jpg", url: "/game/highway-racer-3d.html" },
+      { name: "Parkour Race", image: "/sarkar/parkour-race.jpg", url: "/game/parkour-race.html" },
+      { name: "Merge Round Racers", image: "/sarkar/merge-round-racers.jpg", url: "/game/merge-round-racers.html" },
+      { name: "Ovo", image: "/sarkar/ovo.jpg", url: "/game/ovo.html" },
+      { name: "Car Space Rocket", image: "/sarkar/blumgi-rocket.jpg", url: "/game/blumgi-rocket.html" },
+      { name: "Pig Super", image: "/sarkar/iron-snout.jpg", url: "/game/iron-snout.html" },
+      { name: "Pig Super 2", image: "/sarkar/iron-snout-2.jpg", url: "/game/iron-snout-2.html" },
+      { name: "Flip Bottle", image: "/sarkar/bottle-flip-3d.jpg", url: "/game/bottle-flip-3d.html" },
+      { name: "FNAF 1", image: "/sarkar/fnaf1.jpg", url: "/game/fnaf1.html" },
+      { name: "Idle Dice", image: "/sarkar/idle-dice.jpg", url: "/game/idle-dice.html" },
+      { name: "Tap Tap Shots", image: "/sarkar/tap-tap-shots.jpg", url: "/game/tap-tap-shots.html" },
+      { name: "Flying Car Simulator", image: "/sarkar/flying-car-simulator.jpg", url: "/game/flying-car-simulator.html" },
+      { name: "Thumb fighter", image: "/sarkar/thumb-fighter.jpg", url: "/game/thumb-fighter.html" },
+      { name: "Murder", image: "/sarkar/murder.jpg", url: "/game/murder.html" },
+      { name: "Stack", image: "/sarkar/rainbow-stacker.jpg", url: "/game/rainbow-stacker.html" },
+      { name: "Rooftop Snipers", image: "/sarkar/rooftop-snipers.jpg", url: "/game/rooftop-snipers.html" },
+      { name: "Getaway Shootout", image: "/sarkar/getaway-shootout.jpg", url: "/game/getaway-shootout.html" },
+      { name: "Angry gran run", image: "/sarkar/angry-gran-run.jpg", url: "/game/angry-gran-run.html" },
+      { name: "Madalin stunt cars 3", image: "/sarkar/madalin-stunt-cars-3.jpg", url: "/game/madalin-stunt-cars-3.html" },
+      { name: "Temple of boom", image: "/sarkar/temple-of-boom.jpg", url: "/game/temple-of-boom.html" },
+      { name: "Swing Hook", image: "/sarkar/stickmanhook.jpg", url: "/game/stickmanhook.html" },
+      { name: "Gold Digger Frvr", image: "/sarkar/gold-digger-frvr.jpg", url: "/game/gold-digger-frvr.html" },
+      { name: "Wrassling", image: "/sarkar/wrassling.jpg", url: "/game/wrassling.html" },
+      { name: "golfinity", image: "/sarkar/golfinity.jpg", url: "/game/golfinity.html" },
+      { name: "Bob The Robber 4", image: "/sarkar/bob-the-robber-4.jpg", url: "/game/bob-the-robber-4.html" },
+      { name: "Smash Karts", image: "/sarkar/smash-karts.jpg", url: "/game/smash-karts.html" },
+      { name: "Road Run", image: "/sarkar/crossy-road.jpg", url: "/game/crossy-road.html" },
+      { name: "Burnin Rubber 5 XS", image: "/sarkar/burnin-rubber-5-xs.jpg", url: "/game/burnin-rubber-5-xs.html" },
+      { name: "House Of Hazards", image: "/sarkar/house-of-hazards.jpg", url: "/game/house-of-hazards.html" },
+      { name: "Raft Wars 1", image: "/sarkar/raft-wars.jpg", url: "/game/raft-wars.html" },
+      { name: "Raft Wars 2", image: "/sarkar/raft-wars-2.jpg", url: "/game/raft-wars-2.html" },
+      { name: "Extreme Car Parking!", image: "/sarkar/extreme-car-parking.jpg", url: "/game/extreme-car-parking.html" },
+      { name: "Swipe Fighter Heroes", image: "/sarkar/swipe-fighter-heroes.jpg", url: "/game/swipe-fighter-heroes.html" },
+      { name: "Fireboy and watergirl", image: "/sarkar/fireboy-and-watergirl-1.jpg", url: "/game/fireboy-and-watergirl-1.html" },
+      { name: "Jelly stuck", image: "/sarkar/jelly-truck.jpg", url: "/game/jelly-truck.html" },
+      { name: "Doodle Jump", image: "/sarkar/doodle-jump.jpg", url: "/game/doodle-jump.html" },
+      { name: "FNAF 2", image: "/sarkar/Fnf.jpg", url: "/game/fnaf2.html" },
+      { name: "FNAF 3", image: "/sarkar/fnaf3.jpg", url: "/game/fnaf3.html" },
+      { name: "FNAF 4", image: "/sarkar/fnaf4.jpg", url: "/game/fnaf4.html" },
+      { name: "FNAF Sister", image: "/sarkar/fnafsl.jpg", url: "/game/fnafsl.html" },
+      { name: "Tunnel Rush 2", image: "/sarkar/tunnel-rush-2.jpg", url: "/game/tunnel-rush-2.html" },
+      { name: "Burnout Drift: Hilltop", image: "/sarkar/burnout-drift-hillto.jpg", url: "/game/burnout-drift-hilltop.html" },
+      { name: "Eagle Ride", image: "/sarkar/eagle-ride.jpg", url: "/game/eagle-ride.html" },
+      { name: "HongKong Run Man", image: "/sarkar/subway-surfers-hongkong.jpg", url: "/game/subway-surfers-hongkong.html" },
+      { name: "Idle startup tycoon", image: "/sarkar/idle-startup-tycoon.jpg", url: "/game/idle-startup-tycoon.html" },
+      { name: "2048", image: "/sarkar/2048.jpg", url: "/game/2048.html" },
+      { name: "Duck Life 4", image: "/sarkar/ducklife-4.jpg", url: "/game/ducklife-4.html" },
+      { name: "Candy Jump", image: "/sarkar/candy-jump.jpg", url: "/game/candy-jump.html" },
+      { name: "Idle Miner", image: "/sarkar/idle-miner.jpg", url: "/game/idle-miner.html" },
+      { name: "Demolition Derby Crash Racing", image: "/sarkar/demolition-derby-crash-racing.jpg", url: "/game/demolition-derby-crash-racing.html" },
+      { name: "Top Speed 3D", image: "/sarkar/top-speed-3d.jpg", url: "/game/top-speed-3d.html" },
+      { name: "Adventure Drivers", image: "/sarkar/adventure-drivers.jpg", url: "/game/adventure-drivers.html" },
+      { name: "Worlds hardest game", image: "/sarkar/worlds-hardest-game.jpg", url: "/game/worlds-hardest-game.html" },
+      { name: "Color Road", image: "/sarkar/color-road.jpg", url: "/game/color-road.html" },
+      { name: "Microwars", image: "/sarkar/microwars.jpg", url: "/game/microwars.html" },
+      { name: "Rolly Vortex", image: "/sarkar/rolly-vortex.jpg", url: "/game/rolly-vortex.html" },
+      { name: "Car Drift Racers 2", image: "/sarkar/car-drift-racers-2.jpg", url: "/game/car-drift-racers-2.html" }
+    ]; window.gamesList = document.getElementById('games-list');
+    gamesList.style.display = "flex";
+    gamesList.style.flexWrap = "wrap";
+    gamesList.style.gap = "16px";
+    window.games.forEach(game => {
+      const a = document.createElement('a');
+      a.href = game.url;
+      a.style.display = "flex";
+      a.style.flexDirection = "column";
+      a.style.alignItems = "center";
+      a.style.width = "110px";
+      a.style.textDecoration = "none";
+      a.style.color = "inherit";
+      a.innerHTML = `<img src="${game.image}" alt="${game.name}" width="94" height="94" style="border-radius:12px;"><span style="margin-top:8px;text-align:center;">${game.name}</span>`;
+      gamesList.appendChild(a);
+    });
+  </script>
+
+  </div>
+  <div style="display: contents;">
+    <div class="sc-1ri0y0w-6 jfAzpO">
+      <div style="background-color: var(--green-7);" class="sc-1ri0y0w-7 lgEayX">
+        <div decoding="async" class="sc-1ri0y0w-2 mvtOn"></div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Footer section - Add this at the bottom of your body tag -->
+    <footer class="game-footer">
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/img/logo_white.png" alt="Eggy Car" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Enjoy free unblocked games instantly in your browser. Perfect for school, work, or home
+                        entertainment - no downloads needed, available 24/7!
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/car.html">Car Games</a></li>
+                        <li><a href="/action.html">Action Games</a></li>
+                        <li><a href="/sports.html">Sports Games</a></li>
+                        <li><a href="/popular.html">Popular Games</a></li>
+                    </ul>
+                </div>
+
+                <!-- Top Games -->
+                <div class="footer-section">
+                    <h3>Top Games</h3>
+                    <ul class="footer-links">
+                        <li><a href="/game/eggy-car.html">Eggy Car</a></li>
+                        <li><a href="/game/drift-hunters.html">Drift Hunters</a></li>
+                        <li><a href="/game/subway-surfers.html">Subway Surfers</a></li>
+                        <li><a href="/game/basketball-stars.html">Basketball Stars</a></li>
+                        <li><a href="/game/among-us.html">Among Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="/contact.html">Contact Us</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Eggy Car. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- JS Scripts -->
+   <script src="/js/new.js"></script>
+    <script src="/js/app.bundle.js"></script>
+   <script src="/js/play.js?v=4"></script>
+    <script src="/game.js"></script>
+    <script src="/search.js"></script>
+</body>
+
+</html>
